@@ -1,0 +1,78 @@
+buildscript {
+  repositories {
+    maven {
+      url "https://plugins.gradle.org/m2/"
+    }
+  }
+  dependencies {
+    classpath "com.bmuschko:gradle-tomcat-plugin:2.2.2"
+  }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'war'
+apply plugin: 'eclipse-wtp'
+apply plugin: 'com.bmuschko.tomcat-base'
+ 
+ // JDK 7
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+sourceCompatibility = 1.5
+version = '1.0'
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Quickstart',
+                   'Implementation-Version': version
+    }
+}
+
+repositories {
+	mavenLocal()
+    mavenCentral()
+    flatDir {
+       dirs 'src/main/webapp/WEB-INF/lib'
+   }   
+}
+
+dependencies {	
+    compile group: 'commons-collections', name: 'commons-collections', version: '3.2'
+    compile 'ch.qos.logback:logback-classic:1.1.3'
+    compile 'org.springframework:spring-core:4.0.1.RELEASE'
+    compile 'org.springframework:spring-web:4.0.1.RELEASE'
+	compile 'org.springframework:spring-webmvc:4.0.1.RELEASE'
+	compile 'org.springframework:spring-tx:4.0.1.RELEASE'
+	compile 'org.springframework:spring-jdbc:4.0.1.RELEASE'
+	compile 'org.springframework:spring-orm:4.0.1.RELEASE'
+	compile 'org.springframework:spring-test:4.0.1.RELEASE'
+	compile 'org.springframework:spring-test-mvc:1.0.0.M2'
+	compile 'org.hamcrest:hamcrest-all:1.3'
+	compile 'com.github.springtestdbunit:spring-test-dbunit:1.1.0'
+	compile 'org.dbunit:dbunit:2.4.8'
+	compile 'javax.servlet:jstl:1.2'
+	compile 'net.sf.jasperreports:jasperreports:5.0.1'
+	compile 'com.jaspersoft.jasperserver:jasperserver-dto:6.0.1'
+	compile 'javax.servlet:javax.servlet-api:3.1.0'
+	runtime('postgresql:postgresql:9.1-901-1.jdbc4')
+	compile 'net.sf.json-lib:json-lib:2.4:jdk15'
+	compile 'xom:xom:1.2.5'
+	compile 'javax.persistence:persistence-api:1.0.2'
+	compile 'org.hibernate:hibernate-core:4.0.1.Final'
+	compile 'org.hibernate:hibernate-ehcache:4.0.1.Final'
+	compile name: 'jrs-rest-java-client-6.0.3-ALPHA-jar-with-dependencies'
+    testCompile group: 'junit', name: 'junit', version: '4.+'
+}
+
+test {
+    systemProperties 'property': 'value'
+}
+
+uploadArchives {
+    repositories {
+       flatDir {
+           dirs 'repos'
+       }
+    }
+}
+

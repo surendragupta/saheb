@@ -1,0 +1,26 @@
+<div style="width:500px">				
+				<div class="row">
+				  <div class="small-3 small-centered columns">Login</div>
+				</div>
+				<div class="row">
+				  <div class="small-3 small-centered columns"><div class="alert-box">
+				${message}
+				</div></div>
+				</div>
+				<div class="row">
+				  <div class="medium-6 columns">Prefix Name:</div>
+				  <div class="medium-6 columns"><input type="text" name="prefixName" /></div>
+				</div>				
+				<div class="row">
+				  <div class="medium-2 columns">User Name:</div>
+				  <div class="medium-10 columns"><input type="text" name="userName" /></div>
+				</div>
+				<div class="row">
+				  <div class="medium-2 columns">Password:</div>
+				  <div class="medium-10 columns"><input type="password" name="password" /></div>
+				</div>
+				<div class="row">
+				  <div class="medium-2 columns"></div>
+				  <div class="medium-10 columns"><input type="submit" value="login"/></div>
+				</div>				
+			</div>

@@ -1,0 +1,7 @@
+<dataset>
+    <public.users user_name="mithun.mondal" user_password="1234" prefix_name="mithun" domain_id="0"/>
+    <public.users user_name="saheb.mondal" user_password="0987" prefix_name="saheb" domain_id="0"/>
+    
+    <public.domain domain_id="1" domain_name="sinet-lm-dev" reference_name="administrator" user_space="saheb" parent_id="0"/>
+    <public.domain domain_id="2" domain_name="sinet-lm-dev2" reference_name="administrator" user_space="Mithun" parent_id="0"/>
+</dataset>
