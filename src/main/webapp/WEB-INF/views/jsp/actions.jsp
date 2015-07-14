@@ -16,10 +16,10 @@ pageEncoding="ISO-8859-1"%>
 				tableTools: {
 					"sRowSelect": "os"
 				}
-			});
+			});			
 			
 // 			oTable.fnClearTable();
-			for(var i = 0; i < ${listDomain}.length; i++) {
+			for(var i = 0; i < ${listDomain}.length; i++) {				
 				oTable.fnAddData([
 				${listDomain}[i]['id'],
 				${listDomain}[i]['name'],
@@ -77,8 +77,8 @@ pageEncoding="ISO-8859-1"%>
 	<body class="dt-example">		
 	        <div class="container">
 	        <section>
-	        <h4> Brain-Honey </h4>
-	        <input type="hidden" name="currentTab" id="currentTab" value="${tabIndex}" />
+		        <h4> Brain-Honey </h4>
+		        <input type="hidden" name="currentTab" id="currentTab" value="${tabIndex}" />
 	                <ul class="tabs">
 						<li class="active">Domain</li>
 						<li>User</li>
@@ -87,11 +87,11 @@ pageEncoding="ISO-8859-1"%>
 	                <div class="domain">
 	                	<h4><span id="message">  ${message} </span></h4>              
 	                    <form method="post" action="createDomain">
-	                        <label for="email">Reference id:</label> <br /> 
+	                        <label for="reference">Reference id:</label> <br /> 
 	                        <input type="text" name="reference" /> <br />
-	                        <label for="email">Domain Name:</label> <br /> 
+	                        <label for="domainName">Domain Name:</label> <br /> 
 	                        <input type="text" name="domainName" /> <br />
-	                        <label for="password">User space:</label> <br /> 
+	                        <label for="userspace">User space:</label> <br /> 
 	                        <input type="text" name="userspace" /> <br />
 	                        <br /> <input type="submit" value="Submit">
 	                    </form>
@@ -127,7 +127,7 @@ pageEncoding="ISO-8859-1"%>
 	                    <br />
 	                </div>
 	            </div>
-	            </section>
-	        </div>
+	        </section>
+	    </div>
 	</body>
 </html>

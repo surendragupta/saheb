@@ -146,7 +146,7 @@ public class BrainHoneyController {
         mv.addObject("message", message);
         mv.addObject("tabIndex", 0);
         mv.addObject("listUser", formatedUserJson);
-        mv.addObject("listDomain", formatedDomainJson);
+        mv.addObject("listDomain", formatedDomainJson);        
         message = "";
 		return mv;		
 	}
