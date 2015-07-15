@@ -1,0 +1,31 @@
+ÐHibernate: 
+    select
+        this_.user_id as user1_1_0_,
+        this_.domain_id as domain2_1_0_,
+        this_.first_name as first3_1_0_,
+        this_.last_name as last4_1_0_,
+        this_.prefix_name as prefix5_1_0_,
+        this_.user_name as user6_1_0_,
+        this_.user_password as user7_1_0_ 
+    from
+        USERS this_
+ÆHibernate: 
+    select
+        domain0_.domain_id as domain1_0_0_,
+        domain0_.domain_name as domain2_0_0_,
+        domain0_.parent_id as parent3_0_0_,
+        domain0_.reference_name as reference4_0_0_,
+        domain0_.user_space as user5_0_0_ 
+    from
+        DOMAIN domain0_ 
+    where
+        domain0_.domain_id=?
+ŒHibernate: 
+    select
+        this_.domain_id as domain1_0_0_,
+        this_.domain_name as domain2_0_0_,
+        this_.parent_id as parent3_0_0_,
+        this_.reference_name as reference4_0_0_,
+        this_.user_space as user5_0_0_ 
+    from
+        DOMAIN this_

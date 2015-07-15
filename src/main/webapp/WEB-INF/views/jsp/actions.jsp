@@ -5,7 +5,7 @@ pageEncoding="ISO-8859-1"%>
 <html>
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Spring 4 MVC</title>
+	<title>School Improvement Tool</title>
 	<jsp:include page="include/mappedResources.jsp" />
 	
 	
@@ -77,7 +77,7 @@ pageEncoding="ISO-8859-1"%>
 	<body class="dt-example">		
 	        <div class="container">
 	        <section>
-		        <h4> Brain-Honey </h4>
+		        <h4>School Improvement Tool</h4>
 		        <input type="hidden" name="currentTab" id="currentTab" value="${tabIndex}" />
 	                <ul class="tabs">
 						<li class="active">Domain</li>

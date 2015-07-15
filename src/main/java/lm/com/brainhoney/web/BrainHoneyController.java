@@ -37,6 +37,8 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.data.JRTableModelDataSource;
 import net.sf.jasperreports.view.JasperViewer;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
@@ -47,7 +49,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
@@ -59,6 +60,9 @@ import com.jaspersoft.jasperserver.jaxrs.client.core.operationresult.OperationRe
 @Controller
 @PropertySource(value = { "classpath:app.properties" })
 public class BrainHoneyController {
+	
+	private static final Logger log = LoggerFactory.getLogger(BrainHoneyController.class);
+	
 	String message = "";
 	Document result = null;
 	
@@ -111,7 +115,9 @@ public class BrainHoneyController {
 //        result = session.Login("sinet-lm-dev", "administrator", "g#c9=WW9");
         if (!Session.IsSuccess(result))
         {
-            System.out.println("Unable to login: " + Session.GetMessage(result));
+//            System.out.println("Unable to login: " + Session.GetMessage(result));
+            log.debug("loginUser() is executed, value {}", user.getUserName());
+            log.error("Unable to login: " + Session.GetMessage(result));
             message = "Unable to login: " + Session.GetMessage(result);	
             
             // return response
@@ -140,7 +146,7 @@ public class BrainHoneyController {
         				environment.getRequiredProperty("domain.omittedlist")));
         
         message = "Login successfully.";
-        
+        log.info(message);
         // return response
         ModelAndView mv = new ModelAndView("actions");
         mv.addObject("message", message);
@@ -246,9 +252,10 @@ public class BrainHoneyController {
         
         if (!Session.IsSuccess(result))
         {
-            System.out.println("Unable to create domain: " + Session.GetMessage(result));
+//            System.out.println("Unable to create domain: " + Session.GetMessage(result));
             message = "Unable to create domain: " + Session.GetMessage(result) + "";
-            		             
+            log.debug("createDomain() is executed, value {}", domainName);
+            log.error("Unable to create domain: " + Session.GetMessage(result));		             
             // return response
             ModelAndView mv = new ModelAndView("actions");
             mv.addObject("message", message);
@@ -274,7 +281,7 @@ public class BrainHoneyController {
         				environment.getRequiredProperty("domain.omittedlist")));
         
         message = "Domain created successfully. (" + domainName + ")"; //Session.getSuccessMessage(result);		        
-    		        
+        log.info(message);	        
        
 		// return response
         ModelAndView mv = new ModelAndView("actions");

@@ -5,6 +5,8 @@ package lm.com.brainhoney.service;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,6 +23,8 @@ import lm.com.brainhoney.model.Domain;
 @Transactional
 public class DomainServiceImpl implements DomainService {
 
+	private static final Logger logger = LoggerFactory.getLogger(DomainServiceImpl.class);
+	
 	@Autowired
     private DomainDAO domainDAO;
 	

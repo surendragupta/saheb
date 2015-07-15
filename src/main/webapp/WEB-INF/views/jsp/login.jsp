@@ -4,21 +4,24 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<title>Spring 4 MVC</title>
+		<title>School Improvement Tool</title>
 		<jsp:include page="include/mappedResources.jsp" />	
 		<script type="text/javascript" language="javascript" class="init">
+		$(document).ready(function() {
+			
+		});
 		</script>
 	</head>
 	<body class="dt-example">
 		<div class="container">
 	        <section>
-	        	<h4> Brain-Honey </h4>
+	        	<h4> School Improvement Tool </h4>
 	      
 	      		<ul class="tabs">
-				<li class="active">Login</li>				
+					<li class="active">Login</li>					
 				</ul>
-	           	<div id="tabs">                
-	              <div id="login">                	
+	           	<div class="tabs">                
+	              <div class="login">                	
 	                  <h4> ${message} </h4>
 	                  <form method="post" action="login" modelAttribute="user">
 	                      <label for="prefixName">Prefix Name:</label> <br />
@@ -28,7 +31,8 @@
 	                      <label for="userPassword">Password:</label> <br />
 	                      <input type="password" name="userPassword" /> <br />
 	                      <br /> <input type="submit" value="Login">                    
-	                  </form>                    
+	                  </form>
+	                  <br />                    
 	              </div>                
 	          	</div>   
 	         </section>     

@@ -20,6 +20,8 @@ import lm.com.brainhoney.model.Session;
 import lm.com.brainhoney.model.User;
 import lm.com.brainhoney.service.DomainService;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
@@ -41,7 +43,7 @@ import org.xml.sax.SAXException;
 @Controller
 public class DomainController {
 	
-//	private static final Logger log = Logger.getLogger(BrainHoneyController.class);
+	private static final Logger log = LoggerFactory.getLogger(DomainController.class);
 
 	String message = "";
 	Document result = null;
@@ -62,7 +64,7 @@ public class DomainController {
     		@ModelAttribute("domain") Domain domain) {
  
 //		domainService.addDomain(domain);
- 
+
         return "redirect:/index";
     }
 	
@@ -76,7 +78,9 @@ public class DomainController {
         
         if (!Session.IsSuccess(result))
         {
-            System.out.println("Unable to login: " + Session.GetMessage(result));
+//            System.out.println("Unable to login: " + Session.GetMessage(result));
+            log.debug("deleteDomain() is executed, value {}", id);
+            log.error("Unable to login: " + Session.GetMessage(result));
             message = Session.GetMessage(result);	
             
             // return response                       
@@ -99,7 +103,7 @@ public class DomainController {
         				environment.getRequiredProperty("domain.omittedlist")));
         
         message = "Domain deleted successfully.";
-        
+        log.info(message);
 		// return response       
         message = "";
         return formatedDomainJson;
